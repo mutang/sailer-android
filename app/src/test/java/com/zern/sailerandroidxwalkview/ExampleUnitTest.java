@@ -1,4 +1,4 @@
-package com.jkys.sailerandroidxwalkview;
+package com.zern.sailerandroidxwalkview;
 
 import org.junit.Test;
 

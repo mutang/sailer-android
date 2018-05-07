@@ -1,4 +1,4 @@
-package com.jkys.sailerandroidxwalkview;
+package com.zern.sailerandroidxwalkview;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
