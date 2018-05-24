@@ -5,6 +5,10 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        maven {
+            url 'https://download.01.org/crosswalk/releases/crosswalk/android/maven2'
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.1'
@@ -16,12 +20,21 @@ buildscript {
 }
 
 allprojects {
+    apply plugin: 'maven'
     repositories {
         google()
         jcenter()
+        maven {
+            url 'https://download.01.org/crosswalk/releases/crosswalk/android/maven2'
+        }
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+ext {
+    //以下各参数与闪电购app中一致，此处统一管理
+    compileSdkVersion = 26
+    buildToolsVersion = "27.0.3"
+    minSdkVersion = 16
+    targetSdkVersion = 26
+    supportVersion = "26.0.0"
 }

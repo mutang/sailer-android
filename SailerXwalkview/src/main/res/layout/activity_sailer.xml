@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/frame_WebFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/test_oom"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:background="@color/text_999999"-->
+            <!--android:gravity="center"-->
+            <!--android:text="wifi 重启"-->
+            <!--android:onClick="testWifi"-->
+            <!--android:textColor="#f00"-->
+            <!--android:textSize="@dimen/text_14" />-->
+
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/test_nullpoint"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_marginTop="20dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:background="@color/text_999999"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:text="NUllPoint"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:textColor="#f00"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:textSize="@dimen/text_14" />&ndash;&gt;-->
+
+        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/test_anr"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_marginTop="20dp"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:background="@color/text_999999"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:text="ANR"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:textColor="#f00"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:textSize="@dimen/text_14" />&ndash;&gt;-->
+    <!--</LinearLayout>-->
+</RelativeLayout>

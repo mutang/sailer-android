@@ -1,1 +1,1 @@
-include ':app', ':ioc-annotation', ':ioc', ':ioc-processor'
+include ':app', ':ioc-annotation', ':ioc', ':ioc-processor', ":SailerXwalkview"

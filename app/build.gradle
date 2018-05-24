@@ -17,10 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-//    compileOptions {
-//        targetCompatibility 1.8
-//        sourceCompatibility 1.8
-//    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
 dependencies {
@@ -30,5 +30,6 @@ dependencies {
 //    testImplementation 'junit:junit:4.12'
     implementation project(':ioc-annotation')
     implementation project(':ioc')
+    implementation project(':SailerXwalkview')
     annotationProcessor project(":ioc-processor")
 }

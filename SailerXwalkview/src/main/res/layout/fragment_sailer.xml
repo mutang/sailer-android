@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:id="@+id/lltitleBar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/blue_4991fd"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/titleTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
+            android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:lines="1"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            tools:text="城商城城商城城商城城商城城商城城商城城商城城商城城商城城商城" />
+
+        <TextView
+            android:id="@+id/backTv"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@drawable/common_navigation_btn_back_nor"
+            android:paddingLeft="12dp" />
+
+        <TextView
+            android:id="@+id/shareTv"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:ellipsize="end"
+            android:gravity="right|center_vertical"
+            android:lines="1"
+            android:paddingRight="12dp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:visibility="visible"
+            tools:text="饮食贴士食" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/lltitleBar">
+
+        <com.jkys.sailerxwalkview.widget.MyXwalkView
+            android:id="@+id/xwalk_webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></com.jkys.sailerxwalkview.widget.MyXwalkView>
+
+        <ProgressBar
+            android:id="@+id/hProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:progressDrawable="@drawable/progress_bg" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/custom_rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/load_progressBar"
+            style="@style/progress_dialog_loading"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerInParent="true"
+            android:padding="3dp"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/loading_logo" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/error_pagell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="62dp"
+            android:layout_height="62dp"
+            android:src="@drawable/icon_load_url_error" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="加载出错"
+            android:textColor="@color/text_999999"
+            android:textSize="@dimen/text_14" />
+
+        <TextView
+            android:id="@+id/error_page_load_againTv"
+            android:layout_width="156dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/load_url_error_selector"
+            android:gravity="center"
+            android:text="重新加载"
+            android:textColor="@color/load_url_error_color"
+            android:textSize="@dimen/text_16" />
+
+        <TextView
+            android:id="@+id/error_page_backTv"
+            android:layout_width="156dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/load_url_error_selector"
+            android:gravity="center"
+            android:text="返 回"
+            android:textColor="@color/load_url_error_color"
+            android:textSize="@dimen/text_16" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/updateLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/tip_bg_transparent"
+        android:padding="8dp"
+        android:visibility="gone"
+        android:text="检测到新的更新资源..."
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <!--<TextView-->
+        <!--android:id="@+id/testforZern"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Test"-->
+        <!--android:padding="8dp"-->
+        <!--android:background="#4399fd"-->
+        <!--android:textSize="12dp"-->
+        <!--android:textColor="#000000"-->
+        <!--android:visibility="gone"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_centerVertical="true" />-->
+
+    <TextView
+        android:id="@+id/update_errorTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/tip_bg_transparent"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:text="网络异常,更新失败 !"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:visibility="gone" />
+</RelativeLayout>
