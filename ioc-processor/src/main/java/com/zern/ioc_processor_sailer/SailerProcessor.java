@@ -6,6 +6,7 @@ import com.zern.ioc_annotation.SailerRegisterAnnotation;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -67,10 +68,12 @@ public class SailerProcessor extends AbstractProcessor {
                     .append("package ").append(proxyPackName).append(";\n\n")
 //                .append("import com.zern.ioc.*;\n\n")
                     .append("public class ").append(proxyClassName).append("{\n")
-                    .append("public void ").append(proxyClassMethod).append("() {\n");
+                    .append("\tpublic void ").append(proxyClassMethod).append("() {\n");
 
             //2. 收集信息 把要处理的 也就是被标记的类全部罗列出来 拼接到代码中
-            for (Element element : elements) {
+            Iterator<? extends Element> iterator = elements.iterator();
+            while (iterator.hasNext()) {
+                Element element = iterator.next();
                 if (!checkAnnotationValid(element, SailerRegisterAnnotation.class)) {
                     continue;
                 }
@@ -78,16 +81,18 @@ public class SailerProcessor extends AbstractProcessor {
                 TypeElement typeElement = (TypeElement) element;
                 //完整的名称
                 String qualifiedName = typeElement.getQualifiedName().toString();
-                stringBuilder.append(ActionManagerPackName)
+                stringBuilder.append("\t\t")
+                        .append(ActionManagerPackName)
                         .append(".")
                         .append(ActionManagerClassName)
                         .append(".")
                         .append("getActions().add(")
                         .append("new ").append(qualifiedName).append("()")
                         .append(");");
+                if (iterator.hasNext()) stringBuilder.append("\n");
             }
-            stringBuilder.append("\n}\n");
-            stringBuilder.append("\n}\n");
+            stringBuilder.append("\n\t}");
+            stringBuilder.append("\n}");
             // 3. 生成Java代码
             generateJavaFile(stringBuilder.toString());
         }
@@ -129,7 +134,7 @@ public class SailerProcessor extends AbstractProcessor {
      * @return
      */
     private boolean checkAnnotationValid(final Element element, final Class<?> clazz) {
-        if (element == null || element.getKind() != ElementKind.CLASS || element.getSimpleName().equals("SailerActionHandler")) {
+        if (element == null || element.getKind() != ElementKind.CLASS || element.getSimpleName().toString().equals("SailerActionHandler")) {
             error(element, "%s must be declared on field !", clazz.getSimpleName());
             return false;
         }

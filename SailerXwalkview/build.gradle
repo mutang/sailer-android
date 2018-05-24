@@ -72,5 +72,4 @@ dependencies {
     api 'com.google.code.gson:gson:2.8.0'
     implementation project(':ioc-annotation')
     api 'org.litepal.android:core:1.4.1'
-    annotationProcessor project(":ioc-processor")
 }

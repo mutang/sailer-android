@@ -14,7 +14,6 @@ import org.xwalk.core.XWalkView;
  * Time: 16:44
  * Email:AndroidZern@163.com
  */
-
 public class C extends SailerActionHandler {
     @Override
     public boolean handlerUrl(String action, String param, Activity activity, XWalkView xWalkView, String callId) throws JSONException {
