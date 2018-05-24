@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
 
 public class SailerProxyRegister {
     private static final String proxyPackName = "com.sailer";
-    private static final String proxyClassName = "SailerActionRegister$$Zern";
+    private static final String proxyClassName = "SailerActionRegister";
     private static final String proxyClassMethod = "initSailerActionsMap";
 
     /**

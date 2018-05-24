@@ -30,7 +30,7 @@ import javax.tools.JavaFileObject;
 //@SupportedSourceVersion(SourceVersion.RELEASE_8)
 public class SailerProcessor extends AbstractProcessor {
     private static final String proxyPackName = "com.sailer";
-    private static final String proxyClassName = "SailerActionRegister$$Zern";
+    private static final String proxyClassName = "SailerActionRegister";
     private static final String proxyClassMethod = "initSailerActionsMap";
     private static final String ActionManagerPackName = "com.jkys.sailerxwalkview.action";
     private static final String ActionManagerClassName = "ActionManager";
