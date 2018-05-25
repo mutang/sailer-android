@@ -19,7 +19,6 @@ buildscript {
 }
 
 allprojects {
-    apply plugin: 'maven'
     repositories {
         google()
         jcenter()

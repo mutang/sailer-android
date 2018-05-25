@@ -30,7 +30,7 @@ dependencies {
 //    testImplementation 'junit:junit:4.12'
     implementation project(':ioc-annotation')
     implementation project(':ioc')
-//    implementation 'com.github.PalmSugarMedicine:sailer-android:1.0.0'
-    implementation project(':SailerXwalkview')
+    implementation 'com.github.PalmSugarMedicine:sailer-android:1.0.2'
+//    implementation project(':SailerXwalkview')
     annotationProcessor project(":ioc-processor")
 }
