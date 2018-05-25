@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by wuweixiang on 17/9/5.
+ * Created by zern on 17/9/5.
  */
 
 public class NetworkCheckUtil {
@@ -31,22 +31,22 @@ public class NetworkCheckUtil {
     public static boolean checkNetwork(Context ctx, boolean isForce) {
         boolean isChangeOff = false;
         if (NetworkCheckUtil.networkType == 0) {
-            Log.e("wuweixiang", "默认网络状态,不需要处理");
+            Log.e("zern", "默认网络状态,不需要处理");
             return isChangeOff;
         }
         long curTime = System.currentTimeMillis();
         if (!isForce && lastCheckNetworkTime > 0 && curTime - lastCheckNetworkTime <= CHECK_NETWORK_INTERVAL) {
-            Log.e("wuweixiang", "上一次check在指定的时间内");
+            Log.e("zern", "上一次check在指定的时间内");
             return isChangeOff;
         }
         lastCheckNetworkTime = curTime;
         WifiManager wm = (WifiManager) ctx.getSystemService(Context.WIFI_SERVICE);
-        Log.e("wuweixiang", "networkType=" + NetworkCheckUtil.networkType);
+        Log.e("zern", "networkType=" + NetworkCheckUtil.networkType);
         if (NetworkCheckUtil.networkType == 1) {
             //wifi,打开wifi
-            Log.e("wuweixiang", "打开WIFI");
+            Log.e("zern", "打开WIFI");
             if (!wm.isWifiEnabled()) {
-                Log.e("wuweixiang", "当前WIFI未打开");
+                Log.e("zern", "当前WIFI未打开");
                 wm.setWifiEnabled(true);
                 wm.reconnect();
                 boolean isOpen = getMobileDataStatus(ctx);
@@ -58,9 +58,9 @@ public class NetworkCheckUtil {
 //            closeAPN(ctx);
         } else if (NetworkCheckUtil.networkType == 2) {
             //数据网络,关闭wifi
-            Log.e("wuweixiang", "关闭WIFI");
+            Log.e("zern", "关闭WIFI");
             if (wm.isWifiEnabled()) {
-                Log.e("wuweixiang", "当前WIFI未关闭");
+                Log.e("zern", "当前WIFI未关闭");
                 wm.disconnect();
                 wm.setWifiEnabled(false);
                 isChangeOff = true;

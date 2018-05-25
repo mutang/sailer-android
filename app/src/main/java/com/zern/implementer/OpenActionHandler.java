@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.util.Log;
 
 import com.jkys.sailerxwalkview.action.SailerActionHandler;
+import com.zern.ZernToast;
 import com.zern.ioc_annotation.SailerRegisterAnnotation;
 
 import org.json.JSONException;
@@ -16,11 +17,12 @@ import org.xwalk.core.XWalkView;
  * Time: 16:44
  * Email:AndroidZern@163.com
  */
-@SailerRegisterAnnotation(SailerActionHandler.redirect)
-public class C extends SailerActionHandler {
+@SailerRegisterAnnotation(SailerActionHandler.open)
+public class OpenActionHandler extends SailerActionHandler {
     @Override
     public boolean handlerUrl(String param, Activity activity, XWalkView xWalkView, String callId) throws JSONException {
-        Log.d("SailerHandlerUrl", SailerActionHandler.redirect + "#" + param);
+        Log.d("SailerHandlerUrl", SailerActionHandler.open + "#" + param);
+        ZernToast.showToast(activity, "SailerHandlerUrl" + SailerActionHandler.open + "#" + param);
         return true;
     }
 }

@@ -17,9 +17,9 @@ public class SailerProxyRegister {
     private static final String proxyClassMethod = "initSailerActionsMap";
 
     /**
-     * 反射执行编译自动生成的代码。
+     * 反射执行编译自动生成的代码。 把注册的自动生成的代码执行。
      */
-    public static void initSailer() {
+    public static void registerAllAction() {
         try {
             Class<?> proxyClass = Class.forName(proxyPackName + "." + proxyClassName);
             Object o = proxyClass.newInstance();

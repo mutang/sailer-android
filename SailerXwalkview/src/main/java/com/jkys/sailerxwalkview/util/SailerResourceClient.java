@@ -70,7 +70,7 @@ public class SailerResourceClient extends XWalkResourceClient {
         String url = uri.toString();
         if (!url.startsWith("http"))
             return super.shouldInterceptLoadRequest(view, request);
-        Log.e("wuweixiang", method + " = " + url);
+        Log.e("zern", method + " = " + url);
         if (method.equalsIgnoreCase("GET")) {
             // 异步模式
 //            lastCheckNetworkTime = System.currentTimeMillis();
@@ -124,7 +124,7 @@ public class SailerResourceClient extends XWalkResourceClient {
             }
         });
         if (!isNetworkConnected && NetworkCheckUtil.networkType == 1) {
-            Log.e("wuweixiang", "网络木有连接上");
+            Log.e("zern", "网络木有连接上");
             if (view != null) {
                 view.post(new Runnable() {
                     @Override
@@ -148,7 +148,7 @@ public class SailerResourceClient extends XWalkResourceClient {
 //    private boolean requestFailProcess(final XWalkView view, final XWalkWebResourceResponse response,
 //                                       final WebResInputStream cris, final Uri uri,
 //                                       final Map<String, String> requestHeaders) {
-//        Log.e("wuweixiang", "requestFailProcess");
+//        Log.e("zern", "requestFailProcess");
 //
 //        if (Build.VERSION.SDK_INT >= 21) {
 //            final ConnectivityManager connectivityManager = (ConnectivityManager) BaseTopActivity.getTopActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -173,7 +173,7 @@ public class SailerResourceClient extends XWalkResourceClient {
 //                @Override
 //                public void onAvailable(Network network) {
 //                    super.onAvailable(network);
-//                    Log.e("wuweixiang", "已根据功能和传输类型找到合适的网络");
+//                    Log.e("zern", "已根据功能和传输类型找到合适的网络");
 //
 //                    // 可以通过下面代码将app接下来的请求都绑定到这个网络下请求
 //                    if (Build.VERSION.SDK_INT >= 23) {
@@ -223,7 +223,7 @@ public class SailerResourceClient extends XWalkResourceClient {
 //
 //                    @Override
 //                    public void onError(Throwable e) {
-//                        Log.d("wuweixiang", "http://www.baidu.com onError");
+//                        Log.d("zern", "http://www.baidu.com onError");
 //                        requestFailProcessByOnOff();
 ////                        ZernToast.showToast(ctx, "网络异常");
 //                    }
@@ -239,7 +239,7 @@ public class SailerResourceClient extends XWalkResourceClient {
 //    private void requestNetwork(final XWalkView view, final XWalkWebResourceResponse response,
 //                                final WebResInputStream cris, final Uri uri,
 //                                final Map<String, String> requestHeaders, final boolean isRetry) {
-//        Log.e("wuweixiang", "requestNetwork" + " = " + uri.toString());
+//        Log.e("zern", "requestNetwork" + " = " + uri.toString());
 //        String baseUrl = uri.getScheme() + "://" + uri.getHost();
 //        int port = uri.getPort();
 //        if (port > 0) {
@@ -259,7 +259,7 @@ public class SailerResourceClient extends XWalkResourceClient {
 //
 //                    @Override
 //                    public void onError(Throwable e) {
-//                        Log.d("wuweixiang", "onError");
+//                        Log.d("zern", "onError");
 //                        if (NetworkCheckUtil.networkType > 0) {
 //                            if (isRetry) {
 //                                boolean result = checkNetworkAndReSendReqIfNeed(view, response, cris, uri, requestHeaders);
@@ -432,7 +432,7 @@ public class SailerResourceClient extends XWalkResourceClient {
     @Override
     public void onReceivedLoadError(XWalkView view, int errorCode, String description, String failingUrl) {
 //                    super.onReceivedLoadError(view, errorCode, description, failingUrl);
-        Log.e("wuweixiang", "onReceivedLoadError = " + failingUrl + " errorCode= " + errorCode);
+        Log.e("zern", "onReceivedLoadError = " + failingUrl + " errorCode= " + errorCode + "descripation=" + description);
         errorPagell.setVisibility(View.VISIBLE);
     }
 
