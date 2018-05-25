@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.jkys.sailerxwalkview.action.SailerActionHandler;
+import com.jkys.sailerxwalkview.activity.SailerWebActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
