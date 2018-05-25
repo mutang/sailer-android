@@ -2,32 +2,33 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 group='com.github.AndroidZern'
 
-/**
- * 版本冲突的时候指定强制使用的版本
- * support或者其他外部引用库的多个版本，Gradle在进行合并的时候会使用本地持有的，最高版本的来进行编译，
- * 所以24的support就有可能引用26的东西，就会出现 属性merge错误，或者Class丢失
- */
-configurations.all {
+///**
+// * 版本冲突的时候指定强制使用的版本
+// * support或者其他外部引用库的多个版本，Gradle在进行合并的时候会使用本地持有的，最高版本的来进行编译，
+// * 所以24的support就有可能引用26的东西，就会出现 属性merge错误，或者Class丢失
+// */
+//configurations.all {
+//
+//    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+//        def requested = details.requested
+//        if (requested.group == 'com.android.support') {
+//            if (!requested.name.startsWith("multidex")) {
+//                details.useVersion rootProject.ext.supportVersion
+//            }
+//        }
+//    }
+//}
 
-    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-        def requested = details.requested
-        if (requested.group == 'com.android.support') {
-            if (!requested.name.startsWith("multidex")) {
-                details.useVersion rootProject.ext.supportVersion
-            }
-        }
-    }
-}
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion = 26
+    buildToolsVersion = "27.0.3"
     dexOptions {
         preDexLibraries = true
     }
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion 16
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         multiDexEnabled = true
@@ -40,21 +41,21 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        debug{
-
-        }
-        qatest{
-            minifyEnabled false
-
-        }
-        preRelease{
-
-        }
-        mcpRelease{
-
-        }
+//        debug{
+//
+//        }
+//        qatest{
+//            minifyEnabled false
+//
+//        }
+//        preRelease{
+//
+//        }
+//        mcpRelease{
+//
+//        }
     }
-    buildToolsVersion '27.0.3'
+//    buildToolsVersion '27.0.3'
 }
 
 
@@ -72,6 +73,5 @@ dependencies {
     api 'org.xwalk:xwalk_core_library:23.53.589.4'
     api 'org.greenrobot:eventbus:3.0.0'
     api 'com.google.code.gson:gson:2.8.0'
-    implementation project(':ioc-annotation')
     api 'org.litepal.android:core:1.4.1'
 }
