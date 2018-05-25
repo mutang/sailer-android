@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.AndroidZern'
 
 /**
  * 版本冲突的时候指定强制使用的版本
