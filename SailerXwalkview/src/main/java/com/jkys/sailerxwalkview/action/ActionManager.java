@@ -1,7 +1,6 @@
 package com.jkys.sailerxwalkview.action;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashMap;
 
 /**
  * Created by on
@@ -12,9 +11,9 @@ import java.util.List;
  */
 
 public class ActionManager {
-    private static List<SailerActionHandler> actions = new LinkedList<>();
+    private static HashMap<String, SailerActionHandler> actions = new HashMap<>();
 
-    public static List<SailerActionHandler> getActions() {
+    public static HashMap<String, SailerActionHandler> getActionsMap() {
         return actions;
     }
 }

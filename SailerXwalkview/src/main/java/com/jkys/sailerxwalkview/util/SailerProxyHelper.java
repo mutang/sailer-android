@@ -246,10 +246,14 @@ public abstract class SailerProxyHelper {
 
     public final void handlerActionParam(String action, String param, final Activity activity, final XWalkView xWalkView, String callId) throws JSONException {
         if (!TextUtils.isEmpty(action)) {
-            for (SailerActionHandler sailerActionHandler : ActionManager.getActions()) {
-                if (sailerActionHandler.handlerUrl(action, param, activity, xWalkView, callId)) {
-                    break;
-                }
+//            for (SailerActionHandler sailerActionHandler : ActionManager.getActions()) {
+//                if (sailerActionHandler.handlerUrl(action, param, activity, xWalkView, callId)) {
+//                    break;
+//                }
+//            }
+            SailerActionHandler sailerActionHandler = ActionManager.getActionsMap().get(action);
+            if (sailerActionHandler != null) {
+                sailerActionHandler.handlerUrl(param, activity, xWalkView, callId);
             }
         }
     }

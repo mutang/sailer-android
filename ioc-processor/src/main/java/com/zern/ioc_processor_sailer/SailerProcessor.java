@@ -25,9 +25,10 @@ import javax.lang.model.util.Elements;
 import javax.tools.Diagnostic;
 import javax.tools.JavaFileObject;
 
-@AutoService(Processor.class)
+
 //@SupportedAnnotationTypes("com.zern.ioc_annotation.SailerRegisterAnnotation")
 //@SupportedSourceVersion(SourceVersion.RELEASE_8)
+@AutoService(Processor.class)
 public class SailerProcessor extends AbstractProcessor {
     private static final String proxyPackName = "com.sailer";
     private static final String proxyClassName = "SailerActionRegister";
@@ -37,22 +38,19 @@ public class SailerProcessor extends AbstractProcessor {
 
     @Override
     public Set<String> getSupportedAnnotationTypes() {
-//        return super.getSupportedAnnotationTypes();
         HashSet<String> supportTypes = new LinkedHashSet<>();
         supportTypes.add(SailerRegisterAnnotation.class.getCanonicalName());
         return supportTypes;
     }
 
     @Override
-    public SourceVersion getSupportedSourceVersion()
-    {
+    public SourceVersion getSupportedSourceVersion() {
         return SourceVersion.latestSupported();
     }
 
     private Elements mElementUtils; //基于元素进行操作的工具方法
     private Filer mFileCreator;     //代码创建者
     private Messager mMessager;     //日志，提示者，提示错误、警告
-//    private Map<String, SailerProxyInfo> mProxyMap = new HashMap<>();
 
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
@@ -66,7 +64,6 @@ public class SailerProcessor extends AbstractProcessor {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.append("// Generate code. Do not modify it 我是Zern编译自动生成装载代码!\n")
                     .append("package ").append(proxyPackName).append(";\n\n")
-//                .append("import com.zern.ioc.*;\n\n")
                     .append("public class ").append(proxyClassName).append("{\n")
                     .append("\tpublic void ").append(proxyClassMethod).append("() {\n");
 
@@ -79,6 +76,8 @@ public class SailerProcessor extends AbstractProcessor {
                 }
                 // 拿到被SailerRegisterAnnotation注解标记的类 或者接口
                 TypeElement typeElement = (TypeElement) element;
+                SailerRegisterAnnotation annotation = element.getAnnotation(SailerRegisterAnnotation.class);
+                String value = annotation.value();
                 //完整的名称
                 String qualifiedName = typeElement.getQualifiedName().toString();
                 stringBuilder.append("\t\t")
@@ -86,7 +85,11 @@ public class SailerProcessor extends AbstractProcessor {
                         .append(".")
                         .append(ActionManagerClassName)
                         .append(".")
-                        .append("getActions().add(")
+                        .append("getActionsMap().put(")
+                        .append("\"")
+                        .append(value)
+                        .append("\"")
+                        .append(", ")
                         .append("new ").append(qualifiedName).append("()")
                         .append(");");
                 if (iterator.hasNext()) stringBuilder.append("\n");

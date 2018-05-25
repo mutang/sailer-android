@@ -1,8 +1,10 @@
 package com.zern.implementer;
 
 import android.app.Activity;
+import android.util.Log;
 
 import com.jkys.sailerxwalkview.action.SailerActionHandler;
+import com.zern.ioc_annotation.SailerRegisterAnnotation;
 
 import org.json.JSONException;
 import org.xwalk.core.XWalkView;
@@ -14,9 +16,11 @@ import org.xwalk.core.XWalkView;
  * Time: 16:44
  * Email:AndroidZern@163.com
  */
+@SailerRegisterAnnotation(SailerActionHandler.open)
 public class B extends SailerActionHandler {
     @Override
-    public boolean handlerUrl(String action, String param, Activity activity, XWalkView xWalkView, String callId) throws JSONException {
-        return false;
+    public boolean handlerUrl(String param, Activity activity, XWalkView xWalkView, String callId) throws JSONException {
+        Log.d("SailerHandlerUrl", SailerActionHandler.open + "#" + param);
+        return true;
     }
 }

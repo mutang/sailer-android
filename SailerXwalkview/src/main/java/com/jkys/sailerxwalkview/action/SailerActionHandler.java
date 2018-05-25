@@ -2,8 +2,6 @@ package com.jkys.sailerxwalkview.action;
 
 import android.app.Activity;
 
-import com.zern.ioc_annotation.SailerRegisterAnnotation;
-
 import org.json.JSONException;
 import org.xwalk.core.XWalkView;
 
@@ -16,7 +14,6 @@ import java.util.LinkedHashMap;
 /**
  * 用来处理SailerAction的抽象类 所有的H5涉及到的常量和变量
  */
-@SailerRegisterAnnotation
 public abstract class SailerActionHandler {
     /**\
      * @param action H5传入的action
@@ -26,7 +23,7 @@ public abstract class SailerActionHandler {
      * @param callId H5交互的action的callId 每一个action它的CallId都不样。
      * @return
      */
-    public abstract boolean handlerUrl(String action, String param, final Activity activity, final XWalkView xWalkView, String callId) throws JSONException;
+    public abstract boolean handlerUrl(String param, final Activity activity, final XWalkView xWalkView, String callId) throws JSONException;
 
     public final static String hybird = "hybird://";
     public final static String Native = "native";
