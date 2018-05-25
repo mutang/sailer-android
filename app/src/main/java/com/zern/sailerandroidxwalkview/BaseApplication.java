@@ -4,7 +4,6 @@ import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
 
-import com.jkys.sailerxwalkview.util.SailerManagerHelper;
 import com.zern.ioc.SailerProxyRegister;
 
 import java.util.List;

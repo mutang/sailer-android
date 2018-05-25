@@ -9,10 +9,10 @@
     <TextView
         android:layout_width="match_parent"
         android:gravity="center"
-        android:textSize="@dimen/text_20"
-        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textColor="#fff"
         android:text="SailerMain"
-        android:background="@color/blue_4991fd"
+        android:background="#4991fd"
         android:layout_height="49dp" />
 
     <TextView
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:text="OpenSailerDemo"
         android:gravity="center"
-        android:textSize="@dimen/text_20"
+        android:textSize="20dp"
         android:onClick="OpenSailerDemo"
         android:layout_height="wrap_content" />
 </LinearLayout>
